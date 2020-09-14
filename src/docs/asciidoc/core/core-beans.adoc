@@ -180,7 +180,7 @@ as the local file system, the Java `CLASSPATH`, and so on.
 .Java
 ----
 	ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
-----
+----ClassPathXmlApplicationContext("services.xml", "daos.xml");
 .Kotlin
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 ----
@@ -3628,7 +3628,7 @@ following example:
 	class DefaultBlogService : BlogService {
 
 		private var blogDao: BlogDao? = null
-		
+
 		// this is (unsurprisingly) the initialization callback method
 		fun init() {
 			if (blogDao == null) {
@@ -4991,7 +4991,7 @@ The same applies for typed collections, as the following example shows:
 
 		@Autowired
 		lateinit var movieCatalogs: Set<MovieCatalog>
-		
+
 		// ...
 	}
 ----
@@ -5040,7 +5040,7 @@ corresponding bean names, as the following example shows:
 
 		@Autowired
 		lateinit var movieCatalogs: Map<String, MovieCatalog>
-		
+
 		// ...
 	}
 ----
@@ -5846,7 +5846,7 @@ configuration:
 
 		@Bean
 		fun stringStore() = StringStore()
-			
+
 		@Bean
 		fun integerStore() = IntegerStore()
 	}
@@ -5994,7 +5994,7 @@ named `movieFinder` injected into its setter method:
 
 		@Resource
 		private lateinit var movieFinder: MovieFinder
-		
+
 	}
 ----
 
@@ -6482,7 +6482,7 @@ You can also override the value for the `proxyMode`, as the following example sh
 	@Service
 	@SessionScope(proxyMode = ScopedProxyMode.INTERFACES)
 	class SessionScopedUserService : UserService {
-		// ...	
+		// ...
 	}
 ----
 
@@ -6532,7 +6532,7 @@ are eligible for such autodetection:
 ----
 	@Repository
 	class JpaMovieFinder : MovieFinder {
-		// implementation elided for clarity	
+		// implementation elided for clarity
 	}
 ----
 
@@ -7157,7 +7157,7 @@ technique:
 	@Component
 	@Genre("Action")
 	class ActionMovieCatalog : MovieCatalog {
-		// ...	
+		// ...
 	}
 ----
 
@@ -9891,7 +9891,7 @@ it programmatically against the `Environment` API which is available through an
 	val ctx = AnnotationConfigApplicationContext().apply {
 		environment.setActiveProfiles("development")
 		register(SomeConfig::class.java, StandaloneDataConfig::class.java, JndiDataConfig::class.java)
-		refresh()	
+		refresh()
 	}
 ----
 

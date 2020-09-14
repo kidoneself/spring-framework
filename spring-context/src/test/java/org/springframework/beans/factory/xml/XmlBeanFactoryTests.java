@@ -128,7 +128,11 @@ class XmlBeanFactoryTests {
 	@Test  // SPR-2368
 	void collectionsReferredToAsRefLocals() {
 		DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
-		new XmlBeanDefinitionReader(factory).loadBeanDefinitions(COLLECTIONS_XSD_CONTEXT);
+		XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
+		int i = reader.loadBeanDefinitions(COLLECTIONS_XSD_CONTEXT);
+		System.out.println(COLLECTIONS_XSD_CONTEXT);
+		System.out.println(i);
+		//new XmlBeanDefinitionReader(factory).loadBeanDefinitions(COLLECTIONS_XSD_CONTEXT);
 		factory.preInstantiateSingletons();
 	}
 

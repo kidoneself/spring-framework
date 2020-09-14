@@ -61,6 +61,7 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	/**
 	 * Create a new AnnotationConfigApplicationContext that needs to be populated
 	 * through {@link #register} calls and then manually {@linkplain #refresh refreshed}.
+	 * 通过注册方法和刷新方法，构建注解上下文容器读取器，
 	 */
 	public AnnotationConfigApplicationContext() {
 		this.reader = new AnnotatedBeanDefinitionReader(this);
@@ -91,11 +92,12 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 
 	/**
 	 * Create a new AnnotationConfigApplicationContext, scanning for components
-	 * in the given packages, registering bean definitions for those components,
-	 * and automatically refreshing the context.
+	 * in the given packages, registering bean definitions(定义) for those components(组件),
+	 * and automatically(自动的) refreshing the context.
 	 * @param basePackages the packages to scan for component classes
 	 */
 	public AnnotationConfigApplicationContext(String... basePackages) {
+		//
 		this();
 		scan(basePackages);
 		refresh();
