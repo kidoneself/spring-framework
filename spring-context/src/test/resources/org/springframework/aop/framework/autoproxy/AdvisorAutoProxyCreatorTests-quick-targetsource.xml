@@ -41,4 +41,4 @@
 		<property name="spouse"><ref bean="wife"/></property>
 	</bean>
 
-</beans>	
+</beans>

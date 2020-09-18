@@ -107,7 +107,7 @@
 	<bean id="lazy1" class="org.springframework.beans.testfixture.beans.TestBean" lazy-init="true">
 		<property name="name" value="lazy1" />
 	</bean>
-	
+
 	<alias name="lazy1" alias="lazy1alias"/>
 
 	<bean id="lazy2" class="org.springframework.beans.testfixture.beans.TestBean" lazy-init="true">

@@ -902,7 +902,7 @@ class IntegrationTests {
     application.start()
   }
 
-  @Test
+  @test
   fun `Find all users on HTML page`() {
     client.get().uri("/users")
         .accept(TEXT_HTML)
@@ -934,13 +934,13 @@ class SpecificationLikeTests {
   inner class Calculator {
      val calculator = SampleCalculator()
 
-     @Test
+     @test
      fun `should return the result of adding the first number to the second number`() {
         val sum = calculator.sum(2, 4)
         assertEquals(6, sum)
      }
 
-     @Test
+     @test
      fun `should return the result of subtracting the second number from the first number`() {
         val subtract = calculator.subtract(4, 2)
         assertEquals(2, subtract)

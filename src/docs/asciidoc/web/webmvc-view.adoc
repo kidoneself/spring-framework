@@ -790,7 +790,7 @@ The following example shows how to do so:
 			engineName = "nashorn"
 			setScripts("polyfill.js", "handlebars.js", "render.js")
 			renderFunction = "render"
-			isSharedEngine = false	
+			isSharedEngine = false
 		}
 	}
 ----
@@ -1816,7 +1816,7 @@ empty). The following example shows how to do so:
 .Kotlin
 ----
 	class SampleContentAtomView : AbstractAtomFeedView() {
-		
+
 		override fun buildFeedMetadata(model: Map<String, Any>,
 				feed: Feed, request: HttpServletRequest) {
 			// implementation omitted
@@ -2074,7 +2074,7 @@ The following example shows how to do so:
 		@Bean
 		fun xsltViewResolver() = XsltViewResolver().apply {
 			setPrefix("/WEB-INF/xsl/")
-			setSuffix(".xslt")	
+			setSuffix(".xslt")
 		}
 	}
 ----

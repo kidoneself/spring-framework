@@ -338,7 +338,7 @@ shows:
 
 		HttpClient httpClient = new HttpClient();
 		// Further customizations...
-		
+
 		ClientHttpConnector connector =
 				new JettyClientHttpConnector(httpClient, resourceFactory()); <1>
 
@@ -359,7 +359,7 @@ shows:
 
 		val httpClient = HttpClient()
 		// Further customizations...
-			
+
 		val connector = JettyClientHttpConnector(httpClient, resourceFactory()) // <1>
 
 		return WebClient.builder().clientConnector(connector).build() // <2>
@@ -704,9 +704,9 @@ multipart request. The following example shows how to create a `MultiValueMap<St
 		part("fieldPart", "fieldValue")
 		part("filePart1", new FileSystemResource("...logo.png"))
 		part("jsonPart", new Person("Jason"))
-		part("myPart", part) // Part from a server request	
+		part("myPart", part) // Part from a server request
 	}
-	
+
 	val parts = builder.build()
 ----
 
@@ -917,7 +917,7 @@ index 0:
 		client.get().uri("/person/{id}", i).retrieve()
 				.awaitBody<Person>()
 	}
-	
+
 	val persons = runBlocking {
 		client.get().uri("/persons").retrieve()
 				.bodyToFlow<Person>()
@@ -972,7 +972,7 @@ inter-dependent, without ever blocking until the end.
 With `Flux` or `Mono`, you should never have to block in a Spring MVC or Spring WebFlux controller.
 Simply return the resulting reactive type from the controller method. The same principle apply to
 Kotlin Coroutines and Spring WebFlux, just use suspending function or return `Flow` in your
-controller method . 
+controller method .
 ====
 
 

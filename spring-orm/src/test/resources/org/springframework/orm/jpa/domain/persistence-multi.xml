@@ -8,7 +8,7 @@
 		<exclude-unlisted-classes />
 	</persistence-unit>
 
-	<persistence-unit name="Test" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="test" transaction-type="RESOURCE_LOCAL">
 		<class>org.springframework.beans.testfixture.beans.TestBean</class>
 		<exclude-unlisted-classes />
 	</persistence-unit>

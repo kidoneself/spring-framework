@@ -101,7 +101,7 @@ operations on the output, but you need to adapt the output for use with another 
 Whenever feasible (for example, annotated controllers), WebFlux adapts transparently to the use
 of RxJava or another reactive library. See <<webflux-reactive-libraries>> for more details.
 
-NOTE: In addition to Reactive APIs, WebFlux can also be used with 
+NOTE: In addition to Reactive APIs, WebFlux can also be used with
 <<languages.adoc#coroutines, Coroutines>> APIs in Kotlin which provides a more imperative style of programming.
 The following Kotlin code samples will be provided with Coroutines APIs.
 
@@ -4023,7 +4023,7 @@ underlying FreeMarker view technology):
 	@Configuration
 	@EnableWebFlux
 	class WebConfig : WebFluxConfigurer {
-		
+
 		override fun configureViewResolvers(registry: ViewResolverRegistry) {
 			registry.freeMarker()
 		}

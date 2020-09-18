@@ -2772,7 +2772,7 @@ call `proceed` multiple times. The following listing shows the basic aspect impl
 	class ConcurrentOperationExecutor : Ordered {
 
 		private val DEFAULT_MAX_RETRIES = 2
-		
+
 		private var maxRetries = DEFAULT_MAX_RETRIES
 		private var order = 1
 
@@ -2787,7 +2787,7 @@ call `proceed` multiple times. The following listing shows the basic aspect impl
 		fun setOrder(order: Int) {
 			this.order = order
 		}
-		
+
 		fun doConcurrentOperation(pjp: ProceedingJoinPoint): Any {
 			var numAttempts = 0
 			var lockFailureException: PessimisticLockingFailureException

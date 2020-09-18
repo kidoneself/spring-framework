@@ -6299,7 +6299,7 @@ shows the test template:
 					.build();
 		}
 
-		@Test
+		@test
 		public void testDataAccess() {
 			JdbcTemplate template = new JdbcTemplate(db);
 			template.query( /* ... */ );
@@ -6329,7 +6329,7 @@ shows the test template:
 					.build()
 		}
 
-		@Test
+		@test
 		fun testDataAccess() {
 			val template = JdbcTemplate(db)
 			template.query( /* ... */)
@@ -6942,7 +6942,7 @@ modify statements in their execution, as the following example shows:
 	    .filter { statement -> s.fetchSize(25) }
 ----
 
-`StatementFilterFunction` implementations allow filtering of the executed 
+`StatementFilterFunction` implementations allow filtering of the executed
 `Statement` and filtering of `Result` objects.
 
 [[r2dbc-DatabaseClient-idioms]]
@@ -7088,7 +7088,7 @@ necessarily have to know how the production data source is configured.
 
 When you use Spring's R2DBC layer, you can can configure your own with a
 connection pool implementation provided by a third party. A popular
-implementation is R2DBC Pool (`r2dbc-pool`). Implementations in the Spring 
+implementation is R2DBC Pool (`r2dbc-pool`). Implementations in the Spring
 distribution are meant only for testing purposes and do not provide pooling.
 
 To configure a `ConnectionFactory`:
@@ -7161,7 +7161,7 @@ javadoc for more details.
 
 The `R2dbcTransactionManager` class is a `ReactiveTransactionManager` implementation for
 single R2DBC datasources. It binds an R2DBC connection from the specified connection factory
-to the subscriber `Context`, potentially allowing for one subscriber connection for each 
+to the subscriber `Context`, potentially allowing for one subscriber connection for each
 connection factory.
 
 Application code is required to retrieve the R2DBC connection through

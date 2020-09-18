@@ -703,7 +703,7 @@ examples show:
 ----
 	class MovieRecommender(private val customerPreferenceDao: CustomerPreferenceDao,
 				@Value("#{systemProperties['user.country']}") private val defaultLocale: String) {
-		// ...	
+		// ...
 	}
 ----
 
@@ -949,7 +949,7 @@ following example shows how to do so:
 	// evaluates to a Java map containing the two entries
 	val inventorInfo = parser.parseExpression("{name:'Nikola',dob:'10-July-1856'}").getValue(context) as Map<*, *>
 
-	val mapOfMaps = parser.parseExpression("{name:{first:'Nikola',last:'Tesla'},dob:{day:10,month:'July',year:1856}}").getValue(context) as Map<*, *>	
+	val mapOfMaps = parser.parseExpression("{name:{first:'Nikola',last:'Tesla'},dob:{day:10,month:'July',year:1856}}").getValue(context) as Map<*, *>
 ----
 
 `{:}` by itself means an empty map. For performance reasons, if the map is itself composed
@@ -1274,7 +1274,7 @@ following example shows the mathematical operators in use:
 	val one = parser.parseExpression("8 / 5 % 2").getValue(Int::class.java)  // 1
 
 	// Operator precedence
-	val minusTwentyOne = parser.parseExpression("1+2-3*8").getValue(Int::class.java)  // -21	
+	val minusTwentyOne = parser.parseExpression("1+2-3*8").getValue(Int::class.java)  // -21
 ----
 
 
