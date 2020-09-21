@@ -892,6 +892,10 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 		return (this.configurationFrozen || super.isBeanEligibleForMetadataCaching(beanName));
 	}
 
+	/**
+	 * 前置单例实例化
+	 * @throws BeansException
+	 */
 	@Override
 	public void preInstantiateSingletons() throws BeansException {
 		if (logger.isTraceEnabled()) {
@@ -899,9 +903,14 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 		}
 
 		// Iterate over a copy to allow for init methods which in turn register new bean definitions.
+		// 遍历一个副本以允许init方法注册新的bean定义。
 		// While this may not be part of the regular factory bootstrap, it does otherwise work fine.
+		// 虽然这可能不是常规工厂引导的一部分，但它在其他方面工作得很好。
 		List<String> beanNames = new ArrayList<>(this.beanDefinitionNames);
 
+		/**
+		 * 这里才正真的开始初始化所有剩下的非懒加载单例Bean（即自己定义的java对象）
+		 */
 		// Trigger initialization of all non-lazy singleton beans...
 		for (String beanName : beanNames) {
 			RootBeanDefinition bd = getMergedLocalBeanDefinition(beanName);

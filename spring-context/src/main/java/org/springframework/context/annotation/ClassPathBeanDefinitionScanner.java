@@ -36,7 +36,9 @@ import org.springframework.util.Assert;
 import org.springframework.util.PatternMatchUtils;
 
 /**
+ * 一个bean定义的扫描器，用来发现指定路径中的bean，用给定的注册器（beanFactory或者applicationContext）注册相应的bean
  * A bean definition scanner that detects bean candidates on the classpath,
+
  * registering corresponding bean definitions with a given registry ({@code BeanFactory}
  * or {@code ApplicationContext}).
  *
@@ -82,6 +84,7 @@ public class ClassPathBeanDefinitionScanner extends ClassPathScanningCandidateCo
 	 * of a {@code BeanDefinitionRegistry}
 	 */
 	public ClassPathBeanDefinitionScanner(BeanDefinitionRegistry registry) {
+		//调用构造方法创建scanner
 		this(registry, true);
 	}
 
@@ -143,7 +146,7 @@ public class ClassPathBeanDefinitionScanner extends ClassPathScanningCandidateCo
 
 	/**
 	 * Create a new {@code ClassPathBeanDefinitionScanner} for the given bean factory and
-	 * using the given {@link Environment} when evaluating bean definition profile metadata.
+	 * using the given {@link Environment} when evaluating评估 bean definition profile metadata.
 	 * @param registry the {@code BeanFactory} to load bean definitions into, in the form
 	 * of a {@code BeanDefinitionRegistry}
 	 * @param useDefaultFilters whether to include the default filters for the

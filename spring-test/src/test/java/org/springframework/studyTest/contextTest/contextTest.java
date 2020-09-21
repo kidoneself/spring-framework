@@ -9,9 +9,6 @@ public class contextTest {
 	@Test
 	public void test01() {
 		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(config.class);
-		Person person = (Person) ac.getBean("person");
-		System.out.println(person);
-
 	}
 
 }

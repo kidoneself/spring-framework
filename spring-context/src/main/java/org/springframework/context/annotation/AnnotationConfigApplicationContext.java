@@ -27,6 +27,8 @@ import org.springframework.util.Assert;
 import java.util.function.Supplier;
 
 /**
+ * 独立的应用上下文，接受那些带着@Configuration注解和@Component注解的class文件，通过#register方法一个一个
+ * 的注册class文件
  * Standalone application context, accepting <em>component classes</em> as input &mdash;
  * in particular {@link Configuration @Configuration}-annotated classes, but also plain
  * {@link org.springframework.stereotype.Component @Component} types and JSR-330 compliant
@@ -53,24 +55,28 @@ import java.util.function.Supplier;
  */
 public class AnnotationConfigApplicationContext extends GenericApplicationContext implements AnnotationConfigRegistry {
 
-	//注解bean对象读取
+	//注解bean对象读取器
 	private final AnnotatedBeanDefinitionReader reader;
 
-	//
+	//class文件中bean的扫描器
 	private final ClassPathBeanDefinitionScanner scanner;
 
 
 	/**
+	 * 创建一个新的注解上下文容器，需要手动注册和刷新
 	 * Create a new AnnotationConfigApplicationContext that needs to be populated
 	 * through {@link #register} calls and then manually {@linkplain #refresh refreshed}.
-	 * 创建一个新的注解上下文容器，需要手动注册和刷新
 	 */
 	public AnnotationConfigApplicationContext() {
+		//创建成员变量reader
 		this.reader = new AnnotatedBeanDefinitionReader(this);
+		//创建成员变量scanner
 		this.scanner = new ClassPathBeanDefinitionScanner(this);
 	}
 
 	/**
+	 * 用给定的默认beanFactory创建一个注解配置的应用上下文
+	 * <p>
 	 * Create a new AnnotationConfigApplicationContext with the given DefaultListableBeanFactory.
 	 *
 	 * @param beanFactory the DefaultListableBeanFactory instance to use for this context
@@ -82,16 +88,20 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	}
 
 	/**
+	 * 从传入的class文件加载bean信息并且自动刷新上下文
+	 * <p>
 	 * Create a new AnnotationConfigApplicationContext, deriving bean definitions
 	 * from the given component classes and automatically refreshing the context.
-	 * 从传入的class文件加载bean信息并且自动刷新上下文
 	 *
 	 * @param componentClasses one or more component classes &mdash; for example,
 	 *                         {@link Configuration @Configuration} classes
 	 */
 	public AnnotationConfigApplicationContext(Class<?>... componentClasses) {
+		//调用无参构造器创建AnnotationConfigApplicationContext对象，创建reader和sacner
 		this();
+		//注册bean
 		register(componentClasses);
+		//刷新容器
 		refresh();
 	}
 
@@ -103,7 +113,6 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 * @param basePackages the packages to scan for component classes
 	 */
 	public AnnotationConfigApplicationContext(String... basePackages) {
-		//
 		this();
 		scan(basePackages);
 		refresh();
@@ -157,6 +166,7 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	//---------------------------------------------------------------------
 
 	/**
+	 * 注册一个或者多个组个的class文件
 	 * Register one or more component classes to be processed.
 	 * <p>Note that {@link #refresh()} must be called in order for the context
 	 * to fully process the new classes.
@@ -168,6 +178,7 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 */
 	@Override
 	public void register(Class<?>... componentClasses) {
+		//断言
 		Assert.notEmpty(componentClasses, "At least one component class must be specified");
 		this.reader.register(componentClasses);
 	}
