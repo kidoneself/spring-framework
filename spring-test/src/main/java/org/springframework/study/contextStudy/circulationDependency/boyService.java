@@ -1,11 +1,9 @@
 package org.springframework.study.contextStudy.circulationDependency;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 @Component
-@ComponentScan(basePackages = "org.springframework.study.contextStudy.circulationDependency")
 public class boyService {
 
 	@Autowired
@@ -13,7 +11,10 @@ public class boyService {
 
 
 	public boyService() {
+		System.out.println("Constructor For BoyService");
+	}
 
-		System.out.println("boyService");
+	public void getGirlService() {
+		System.out.println(girlService);
 	}
 }

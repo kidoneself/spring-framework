@@ -10,7 +10,10 @@ public class girlService {
 	private boyService boyService;
 
 	public girlService() {
+		System.out.println("Constructor For GirlService");
+	}
 
-		System.out.println("girlService");
+	public void getGirlService() {
+		System.out.println(boyService);
 	}
 }

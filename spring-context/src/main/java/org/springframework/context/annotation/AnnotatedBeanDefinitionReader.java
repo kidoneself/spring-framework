@@ -269,7 +269,7 @@ public class AnnotatedBeanDefinitionReader {
 									@Nullable Class<? extends Annotation>[] qualifiers, @Nullable Supplier<T> supplier,
 									@Nullable BeanDefinitionCustomizer[] customizers) {
 
-		//注解类定义（一个对象）
+		//注解类定义（一个对象）`
 		AnnotatedGenericBeanDefinition abd = new AnnotatedGenericBeanDefinition(beanClass);
 		//判断是否要跳过（TODO 根据环境要不要跳过这个bean）
 		if (this.conditionEvaluator.shouldSkip(abd.getMetadata())) {
@@ -284,7 +284,7 @@ public class AnnotatedBeanDefinitionReader {
 		abd.setScope(scopeMetadata.getScopeName());
 		//构建bean的name
 		String beanName = (name != null ? name : this.beanNameGenerator.generateBeanName(abd, this.registry));
-		//定义该bean是否懒加载
+		//定义该bean是否懒加载？？？？？？？？
 		AnnotationConfigUtils.processCommonDefinitionAnnotations(abd);
 		//TODO 待看
 		if (qualifiers != null) {
