@@ -114,6 +114,8 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	 * Name of the LifecycleProcessor bean in the factory.
 	 * If none is supplied, a DefaultLifecycleProcessor is used.
 	 *
+	 * 工厂内bean的生命周期的名称
+	 *
 	 * @see org.springframework.context.LifecycleProcessor
 	 * @see org.springframework.context.support.DefaultLifecycleProcessor
 	 */
@@ -932,7 +934,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 		// Instantiate all remaining (non-lazy-init) singletons.
 		/**
-		 * 		加载所有非懒加载单例bean
+		 * 		实例化所有非懒加载单例bean
 		 */
 		beanFactory.preInstantiateSingletons();
 	}
