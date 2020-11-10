@@ -97,7 +97,7 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 *                         {@link Configuration @Configuration} classes
 	 */
 	public AnnotationConfigApplicationContext(Class<?>... componentClasses) {
-		//调用无参构造器创建AnnotationConfigApplicationContext对象，创建reader和sacner
+		//调用无参构造器创建AnnotationConfigApplicationContext对象，创建reader和scanner
 		this();
 		//注册bean
 		register(componentClasses);
