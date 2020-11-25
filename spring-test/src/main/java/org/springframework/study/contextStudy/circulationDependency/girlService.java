@@ -15,8 +15,6 @@ public class girlService {
 
 
 	//	commit_1
-	//	commit_2
-	//	commit_3
 	public void getGirlService() {
 		System.out.println(boyService);
 	}
